@@ -1,0 +1,374 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+****** Markdown ******
+From Wikipedia, the free encyclopedia
+Jump to: navigation, search
+                                  Markdown
+Filename_extensions       .md, .markdown[1]
+Uniform_Type_Identifier  net.daringfireball.markdown
+(UTI)
+Developed by             John_Gruber
+Initial release           March 19, 2004; 11 years ago (2004-03-19)[2][3]
+Latest_release            1.0.1
+                          (December 17, 2004; 11 years ago (2004-12-17)[4])
+Type of format            Markup_language
+Open_format?              yes[5]
+Website                   daringfireball.net/projects/markdown/
+Markdown is a lightweight_markup_language with plain text formatting syntax
+designed so that it can be converted to HTML and many other formats using a
+tool by the same name.[6][7] Markdown is often used to format readme_files, for
+writing messages in online discussion forums, and to create rich_text using a
+plain_text editor.
+***** Contents *****
+    * 1_History
+          o 1.1_Standardization
+          o 1.2_Extensions
+    * 2_Example
+    * 3_Editors
+    * 4_Implementations
+          o 4.1_Test_suites
+    * 5_See_also
+    * 6_References
+    * 7_External_links
+***** History[edit] *****
+John_Gruber created the Markdown language in 2004, with significant
+collaboration with Aaron_Swartz on the syntax,[2][3] with the goal of enabling
+people "to write using an easy-to-read, easy-to-write plain text format, and
+optionally convert it to structurally valid XHTML (or HTML)â.[4]
+The key design goal is readability â that the language be readable as-is,
+without looking like it has been marked up with tags or formatting
+instructions,[8] unlike text formatted with a markup_language, such as Rich
+Text_Format (RTF) or HTML, which have obvious tags and formatting instructions.
+To this end, its main inspiration is the existing conventions for marking up
+plain_text in email, though it also draws from earlier markup languages,
+notably setext, atx (by Aaron Swartz), Textile, reStructuredText, Grutatext,
+and EtText.[8]
+Gruber wrote a Perl script, Markdown.pl, which converts marked-up text input to
+valid, well-formed XHTML or HTML and replaces left-pointing angle brackets
+('<') and ampersands with their corresponding character_entity_references. It
+can be used as a standalone script, as a plugin for Blosxom or Movable_Type, or
+as a text filter for BBEdit.[4]
+Markdown has since been re-implemented by others as a Perl module available on
+CPAN (Text::Markdown), and in a variety of other programming_languages. It is
+distributed under a BSD-style_license and is included with, or available as a
+plugin for, several content-management_systems.[5][9][10]
+Sites such as GitHub, reddit, Diaspora, Stack_Exchange, OpenStreetMap, and
+SourceForge use variants of Markdown to facilitate discussion between users.
+[11][12][13][14] A Markdown dialect is also used by the instant messaging
+system Slack.[15]
+**** Standardization[edit] ****
+There is no clearly defined Markdown standard, apart from the original writeup
+and implementation by John Gruber, which some consider abandonware.[16][17]
+This has led to fragmentation as different vendors write their own variants of
+the language to correct flaws or add missing features.
+From 2012 through 2014, a group of people including Jeff_Atwood launched what
+Atwood characterized as a standardization effort.[18] A community website now
+aims to "document various tools and resources available to document authors and
+developers, as well as implementors of the various markdown implementations".
+[19] In September 2014, Gruber objected to the usage of "Markdown" in the name
+of this effort and it was rebranded as a new dialect named CommonMark.[20][21]
+A tool (named Babelmark2[22]) is also available to "[compare] the output of
+various implementations" to "promote discussion of how and whether certain
+vague aspects of the markdown spec should be clarified".[23] Gruber has argued
+that complete standardisation would be mistaken: "Different sites (and people)
+have different needs. No one syntax would make all happy."[24]
+A standards effort for the Internet_media_type text/markdown (independent of
+the syntax) is underway in the IETF. Plans are to submit the Internet-Draft,
+draft-ietf-appsawg-text-markdown to the IESG in April 2015. The Markdown
+community is invited to submit use cases for Markdown to inform the media type
+standardization process.
+**** Extensions[edit] ****
+A number of other lightweight_markup_languages extend Markdown by adding
+features (such as tables, footnotes, definition lists, and Markdown inside HTML
+blocks) not available in plain Markdown syntax. Among these are Markdown_Extra,
+MultiMarkdown, and the Pandoc Markdown extension.[25] In some cases, this is to
+enable conversion into more formats than just HTML, e.g., LaTeX, RTF, and
+DocBook.
+Many implementations also intentionally omit support for middle word emphasis.
+The original Markdown implementation interprets constructs like
+my_long_variable as a request to emphasize "long" in the middle of a word. Many
+users found this confusing, so many later implementations such as PHP Markdown
+and Python Markdown do not implement middle word emphasis by default.[26]
+The essay "Thoughts on Markdown" stated that Markdown's original developer,
+John Gruber, has not responded to discussions about extensions to Markdown, and
+that "Markdown is changing, with or without him".[27]
+***** Example[edit] *****
+text using        the corresponding
+Markdown syntax   HTML produced by a  the text viewed in a browser
+                  Markdown processor
+Heading           <h1>Heading</h1>    Heading
+=======                               Sub-heading
+                  <h2>Sub-heading</   Another deeper heading
+Sub-heading       h2>                 Paragraphs are separated by a blank line.
+-----------                           Leave 2 spaces at the end of a line to do
+                  <h3>Another deeper  a
+### Another       heading</h3>        line break
+deeper heading                        Text attributes italic, bold, monospace,
+                  <p>Paragraphs are   strikethrough.
+Paragraphs are    separated           Shopping list:
+separated         by a blank line.</      * apples
+by a blank line.  p>                      * oranges
+                                          * pears
+Leave 2 spaces at <p>Leave 2 spaces   Numbered list:
+the end of a line at the end of a        1. apples
+to do a           line to do a<br />     2. oranges
+line break        line break</p>         3. pears
+                                      The rainânot the reignâin Spain.
+Text attributes   <p>Text attributes  A link.
+*italic*,         <em>italic</em>,
+**bold**,         <strong>bold</
+`monospace`,      strong>,
+~~strikethrough~~ <code>monospace</
+.                 code>,
+                  <s>strikethrough</
+Shopping list:    s>.</p>
+
+  * apples        <p>Shopping list:</
+  * oranges       p>
+  * pears
+                  <ul>
+Numbered list:    <li>apples</li>
+                  <li>oranges</li>
+  1. apples       <li>pears</li>
+  2. oranges      </ul>
+  3. pears
+                  <p>Numbered list:</
+The rain---not    p>
+the reign---in
+Spain.            <ol>
+                  <li>apples</li>
+A [link](http://  <li>oranges</li>
+example.com).     <li>pears</li>
+[28]              </ol>
+
+                  <p>The
+                  rain&amp;mdash;not
+                  the
+                  reign&amp;mdash;in
+                  Spain.</p>
+
+                  <p>A <a href="http:
+                  //
+                  example.com">link</
+                  a>.</p>
+***** Editors[edit] *****
+While Markdown is a minimal markup language and is easily read and edited with
+a normal text editor, there are specially designed editors that preview the
+files with styles. There are a variety of such editors available for all major
+platforms. There are syntax highlighting plugins for Markdown built into emacs,
+gedit, and vim. Atom has built-in side-by-side preview window.
+***** Implementations[edit] *****
+Implementations of Markdown are available for many different frameworks,
+platforms and languages.
+    * The sourcecode documentation generator Doxygen supports Markdown with
+      extra features.[29]
+    * RStudio, an IDE for R provides a C++ wrapper_function for a markdown
+      variant called sundown.[30]
+    * IntelliJ_IDEA, an IDE for Java, provides a Markdown plugin[31][32]
+    * MultiMarkdown, a format and program with more syntax features and export
+      options than traditional Markdown
+    * PageDown, a parser for StackExchange's Markdown syntax[18][discuss]
+    * GitHub Flavored Markdown (GFM) treats newlines in paragraph-like content
+      as real line breaks, ignores underscores in words, and adds syntax
+      highlighting, task_lists,[33] and tables.[11][discuss] It has several
+      implementations:
+          o "Grip - GitHub Readme Instant Preview" (Joe Esposito) - Python
+          o "Vim-Flavored-Markdown" (Jeff Tratner) - Vim_scripting
+          o "GitHub-Flavored Markdown Comments" (Evan Solomon) - PHP WordPress
+            plugin
+          o "Markdown on Save" (Mark Jaquith) - PHP WordPress plugin
+          o "Node-GFM" (Gabriel Llamas) - JavaScript
+          o "Parsedown" (Emanuil Rusev) - PHP
+    * Pandoc adds tables, line blocks, definition lists, superscripts and
+      subscripts, can generate table of contents.[34]
+    * Discount - a C implementation.[35][discuss]
+    * Md2doc - a XSLT_2.0 implementation.[36][discuss]
+    * Visual Studio Web Essentials - an extension library for Microsoft_Visual
+      Studio with live markdown preview[discuss]
+    * Markdown editing and live preview in Linux with a python module[37]
+      [discuss]
+**** Test suites[edit] ****
+    * Markdown Text Editor
+    * Markdown Test Suite
+There are many more open-source implementations of Markdown available online.
+***** See also[edit] *****
+    * Similar lightweight markup languages:
+          o AsciiDoc, supports many document types
+          o Org-mode
+          o Textile
+          o txt2tags
+          o Wiki_markup
+    * Comparison_of_document_markup_languages
+    * Comparison_of_documentation_generators
+***** References[edit] *****
+   1. ^ Daring_Fireball Statement by creator John Gruber
+   2. ^ a b"Markdown". Aaron Swartz: The Weblog. March 19, 2004. 
+   3. ^ a b"Daring_Fireball:_Markdown". Archived from the_original on 2004-04-
+      02. Retrieved April 25, 2014. 
+   4. ^ a b c Markdown 1.0.1 readme source code"Daring_Fireball_â_Markdown".
+      17 Dec 2004. 
+   5. ^ a b"Markdown:_License". Daring Fireball. Retrieved April 25, 2014. 
+   6. ^"Markdown". December 4, 2013. 
+   7. ^ http://johnmacfarlane.net/pandoc/index.html
+   8. ^ a b Markdown Syntax"Daring_Fireball_â_Markdown_â_Syntax". 13 Jun
+      2013. Readability, however, is emphasized above all else. A Markdown-
+      formatted document should be publishable as-is, as plain text, without
+      looking like itâs been marked up with tags or formatting instructions.
+      While Markdownâs syntax has been influenced by several existing text-
+      to-HTML filters â including Setext, atx, Textile, reStructuredText,
+      Grutatext, and EtText â the single biggest source of inspiration for
+      Markdownâs syntax is the format of plain text email. 
+   9. ^"MarsEdit_2.3_ties_the_knot_with_Tumblr_support_â_Ars_Technica".
+      Retrieved 2009-08-11. 
+  10. ^"Review:_Practical_Django_Projects_â_Ars_Technica". Retrieved 2009-08-
+      11. 
+  11. ^ a b"GitHub_Flavored_Markdown". github.com. Retrieved 29 March 2013. 
+  12. ^"Reddit_markdown_primer._Or,_how_do_you_do_all_that_fancy_formatting_in
+      your_comments,_anyway?". reddit.com. Retrieved 29 March 2013. 
+  13. ^"Markdown_Editing_Help". http://stackoverflow.com. Retrieved 11 April
+      2014.  External link in |publisher= (help)
+  14. ^"SourceForge:_Markdown_Syntax_Guide". sourceforge.net. Retrieved 2013-
+      05-10. 
+  15. ^ https://api.slack.com/docs/formatting
+  16. ^Atwood, Jeff. "Responsible_Open_Source_Code_Parenting".
+      Codinghorror.com. Retrieved 2014-04-25. 
+  17. ^"Trouble_with_parentheses_in_Markdown_hyperlinks". Six.pairlist.net.
+      2012-10-17. Retrieved 2014-04-25. 
+  18. ^ a bAtwood, Jeff (2012-10-25). "The_Future_of_Markdown".
+      Codinghorror.com. Retrieved 2014-04-25. 
+  19. ^"Markdown_Community_Page". Markdown.github.io. Retrieved 2014-04-25. 
+  20. ^"Standard_Markdown_is_now_Common_Markdown". Jeff Atwood. Retrieved 7
+      October 2014. 
+  21. ^"Standard_Markdown_Becomes_Common_Markdown_then_CommonMark". InfoQ.
+      Retrieved 7 October 2014. 
+  22. ^"Babelmark_2_-_Compare_markdown_implementations". Johnmacfarlane.net.
+      Retrieved 2014-04-25. 
+  23. ^"Babelmark_2_-_FAQ". Johnmacfarlane.net. Retrieved 2014-04-25. 
+  24. ^Gruber, John. "Twitter_post". Retrieved 6 September 2014. 
+  25. ^"Pandoc_Markdown". Pandoc. Retrieved 7 October 2014. 
+  26. ^"Markdown_Discuss". Markdown-Discuss. Retrieved 7 October 2014. 
+  27. ^"Thoughts_on_Markdown_-_All_this". www.leancrew.com. Retrieved 2015-05-
+      06. 
+  28. ^ No space between ] and (
+  29. ^"Doxygen_Manual:_Markdown_support". Stack.nl. 2014-04-21. Retrieved
+      2014-04-25. 
+  30. ^file 462 lines (396 sloc) 12.572 kb. "rstudio/src/cpp/core/markdown/
+      Markdown.cpp_at_master_Â·_rstudio/rstudio_Â·_GitHub". Github.com.
+      Retrieved 2014-04-25. 
+  31. ^"JetBrains_Plugin_Repository ::_Markdown". Plugins.jetbrains.com.
+      Retrieved 2014-04-25. 
+  32. ^"nicoulaj/idea-markdown_ÃË_GitHub". Github.com. 2013-12-01. Retrieved
+      2014-04-25. 
+  33. ^"Writing_on_GitHub". help.github.com. Github, Inc. Retrieved 9 July
+      2014. 
+  34. ^"Pandoc's_markdown". Retrieved 2014-08-05. 
+  35. ^"Discount_-_a_C_implementation_of_the_Markdown_markup_language".
+      Retrieved 2014-11-01. 
+  36. ^"Md2doc_-_Markdown2Html2Docbook_XSLT_2.0_conversion_tool". Retrieved
+      2014-11-25. 
+  37. ^"Markdown_editing_and_live_preview_with_three_simple_tools.". 
+***** External links[edit] *****
+    * Official_website
+
+Retrieved from "https://en.wikipedia.org/w/
+index.php?title=Markdown&amp;oldid=696287115"
+Categories:
+    * Note-taking
+    * Lightweight_markup_languages
+    * 2004_introductions
+Hidden categories:
+    * CS1_errors:_external_links
+***** Navigation menu *****
+**** Personal tools ****
+    * Not logged in
+    * Talk
+    * Contributions
+    * Create_account
+    * Log_in
+**** Namespaces ****
+    * Article
+    * Talk
+Variants
+**** Views ****
+    * Read
+    * Edit
+    * View_history
+More
+**** Search ****
+[Unknown INPUT type][Search][Go]
+**** Navigation ****
+    * Main_page
+    * Contents
+    * Featured_content
+    * Current_events
+    * Random_article
+    * Donate_to_Wikipedia
+    * Wikipedia_store
+**** Interaction ****
+    * Help
+    * About_Wikipedia
+    * Community_portal
+    * Recent_changes
+    * Contact_page
+**** Tools ****
+    * What_links_here
+    * Related_changes
+    * Upload_file
+    * Special_pages
+    * Permanent_link
+    * Page_information
+    * Wikidata_item
+    * Cite_this_page
+**** Print/export ****
+    * Create_a_book
+    * Download_as_PDF
+    * Printable_version
+**** Languages ****
+    * Ø§ÙØ¹Ø±Ø¨ÙØ©
+    * CatalÃ 
+    * ÄeÅ¡tina
+    * Deutsch
+    * Eesti
+    * EspaÃ±ol
+    * ÙØ§Ø±Ø³Û
+    * FranÃ§ais
+    * íêµ­ì´
+    * Ãslenska
+    * Italiano
+    * æ¥æ¬èª
+    * Polski
+    * PortuguÃªs
+    * Ð ÑÑÑÐºÐ¸Ð¹
+    * Svenska
+    * à¹à¸à¸¢
+    * Ð£ÐºÑÐ°ÑÐ½ÑÑÐºÐ°
+    * Tiáº¿ng_Viá»t
+    * ä¸­æ
+Edit_links
+    * This page was last modified on 22 December 2015, at 04:09.
+    * Text is available under the Creative_Commons_Attribution-ShareAlike
+      License; additional terms may apply. By using this site, you agree to the
+      Terms_of_Use and Privacy_Policy. WikipediaÂ® is a registered trademark of
+      the Wikimedia_Foundation,_Inc., a non-profit organization.
+    * Privacy_policy
+    * About_Wikipedia
+    * Disclaimers
+    * Contact_Wikipedia
+    * Developers
+    * Mobile_view
+    * [Wikimedia_Foundation]
+    * [Powered_by_MediaWiki]
