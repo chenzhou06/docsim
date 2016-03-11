@@ -1,0 +1,555 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+****** Lightweight markup language ******
+From Wikipedia, the free encyclopedia
+Jump to: navigation, search
+                        This article relies too much on references to primary
+[Question_book-new.svg] sources. Please improve this article by adding
+                        secondary_or_tertiary_sources. (December 2007)
+A lightweight markup language (LML), also termed a simple or humane markup
+language, is a markup_language with simple, unobtrusive syntax. It is designed
+to be easy to create using any generic text_editor, as well as easy to read in
+its raw form. Lightweight markup languages are used in applications where it
+may be necessary to read the raw document as well as the final rendered output.
+For instance, a person downloading a software library might prefer to read the
+documentation in a text editor rather than a web browser. Another application
+for such languages is to provide for data entry in web-based_publishing, such
+as weblogs and wikis, where the input interface is a simple text_box. The
+server software then converts the input into a common document_markup_language
+like HTML.
+***** Contents *****
+    * 1_History
+    * 2_Types
+    * 3_Comparison_of_language_features
+    * 4_Comparison_of_implementation_features
+    * 5_Comparison_of_lightweight_markup_language_syntax
+          o 5.1_Text_formatting
+          o 5.2_Headings
+                # 5.2.1_Underline
+                # 5.2.2_Prefix
+          o 5.3_Link_syntax
+    * 6_See_also
+    * 7_References
+    * 8_External_links
+***** History[edit] *****
+Lightweight markup languages were originally used on text-only displays which
+could not display characters in italics or bold, so informal methods to convey
+this information had to be developed. This formatting choice was naturally
+carried forth to plain-text email communications. Console_browsers may also
+resort to similar display conventions.
+In 1986 international standard SGML provided facilities to define and parse
+lightweight markup languages using grammars and tag implication. The 1998 W3C
+XML is a profile of SGML that omits these facilities. However, no SGML DTD for
+any of the languages listed below is known.
+***** Types[edit] *****
+Lightweight markup languages can be categorized by their tag types. Like HTML
+(<b>bold</b>), some languages use named elements that share a common format for
+start and end tags (e.g. BBCode [B]bold[/B]), whereas proper lightweight markup
+languages are restricted to punctuation marks and other non-letter symbols for
+tags, but some also mix both styles (e.g. Textile bq. ) or allow embedded HTML
+(e.g. Markdown), possibly extended with custom elements (e.g. Wikitext
+<ref>source</ref>).
+Most languages distinguish between markup for lines or blocks and for shorter
+spans of texts, but some only support inline markup.
+Some markup languages are tailored for a specific purpose, such as documenting
+computer code (e.g. POD, RD) or being converted to a certain output format
+(usually HTML) and nothing else, others are more general in application. This
+includes whether they are oriented on textual presentation or on data
+serialization.[clarification_needed]
+Presentation oriented languages include AsciiDoc, AFT, atx, BBCode, Creole,
+Crossmark, Deplate, Epytext, EtText, Haml, JsonML, MakeDoc, Markdown, Org-mode,
+POD, reST, RD, Setext, SiSU, SPIP, Xupl, Texy!, Textile, txt2tags, UDO and
+Wikitext.
+Data serialization oriented languages include Curl (homoiconic, but also reads
+JSON; every object serializes), JSON, OGDL, SDL and YAML.
+***** Comparison of language features[edit] *****
+                         Comparing language features
+                 HTML   HTML                      class     id        Release
+Language         export import Tables Link titles attribute attribute date
+                 tool   tool
+AsciiDoc         Yes    Yes    Yes    Yes         No        No
+AFT              Yes    No     Yes    Yes         No        No
+BBCode           No     No     Yes    No          No        No
+Creole           No     No     Yes    No          No        No
+deplate          Yes    No     Yes    No          Yes       Yes
+GitHub_Flavored  Yes    No     Yes    Yes         No        No
+Markdown
+Jemdoc[1]        Yes    No     Yes    Yes         No        No
+KARAS            Yes    No     Yes    Yes         Yes/No    Yes/No
+Markdown         Yes    Yes    Yes/No Yes         Yes/No    Yes/No
+Markdown_Extra   Yes    Yes    Yes[2] Yes         Yes       Yes
+MediaWiki        Yes    Yes    Yes    Yes         Yes       Yes
+MultiMarkdown    Yes    No     Yes    Yes         No        No
+Org-mode         Yes    Yes[3] Yes    Yes         Yes       Yes
+PmWiki           No     Yes    Yes    Yes         Yes       Yes
+POD              Yes    ?      No     Yes         ?         ?
+reStructuredText Yes    Yes[3] Yes    Yes         Yes       auto
+Textile          Yes    No     Yes    Yes         Yes       Yes
+Texy!            Yes    Yes    Yes    Yes         Yes       Yes
+txt2tags         Yes    Yes[4] Yes[5] Yes         ?         ?
+Markdown's own syntax does not support tables, class attributes, or id
+attributes; however, since Markdown supports inclusion of native HTML code,
+these features can be implemented using direct HTML. (Note that some extensions
+may support these features.)
+***** Comparison of implementation features[edit] *****
+                               Comparing implementations, especially output formats
+Language         Implementations XHTML        Con/    PDF DocBook ODF EPUB DOC  LMLs       Other        License
+                                              LaTeX                        (X)
+AsciiDoc         Python, Ruby,   XHTML        LaTeX   PDF DocBook ODF EPUB No    —      Man_page     GNU GPL,
+                 JavaScript                                                                etc.         MIT
+AFT              Perl            HTML         LaTeX   No  No      No  No   RTF  —        extensible   not stated
+                                                                                                        [6]
+BBCode           Perl, PHP, C#,  (X)HTML      No      No  No      No  No   No   —        —          Public
+                 Python, Ruby                                                                           Domain
+                 PHP, Python,                                                                           CC_BY-SA
+Creole           Ruby,           Depends on implementation                                              1.0
+                 JavaScript [7]
+deplate          Ruby            HTML         LaTeX   No  DocBook No  No   No   —        plain text   GPL
+                 Haskell         HTML         LaTeX,  PDF DocBook ODF EPUB DOC  AsciiDoc,  OPML         GPL
+                 (Pandoc)                     ConTeXt                           reST
+                 Java,[8]
+GitHub_Flavored  JavaScript,[9]
+Markdown         [10][11] PHP,   HTML[9][10]  No      No  No      No  No   No   —        —          Proprietary
+                 [12][13]        [11][13][14]
+                 Python,[14]
+                 Ruby[15]
+Jemdoc[1]        Python          XHTML 1.1    No      No  No      No  No   No   —        —          GPL
+                 PHP, C#,
+KARAS            JavaScript,     (X)HTML5     No      No  No      No  No   No   —        —          BSD-style
+                 Ruby
+                 Perl
+                 (originally),
+                 C,[16][17]                                                                             BSD-style
+Markdown         Python,[18]     HTML         LaTeX,  PDF DocBook ODF EPUB RTF  MediaWiki, Man_page, S5 &amp; GPL
+                 JavaScript,                  ConTeXt                           reST       etc.         (both)
+                 Haskell,[3]
+                 Ruby,[19] C#,
+                 Java, PHP
+                 PHP                                                                                    BSD-style
+Markdown_Extra   (originally),   XHTML        No      No  No      No  No   No   —        —          &amp; GPL
+                 Python, Ruby                                                                           (both)
+MediaWiki        Perl, PHP,      XHTML        No      No  No      No  No   No   —        —          GNU GPL
+                 Haskell
+MultiMarkdown    C, Perl         (X)HTML      LaTeX   PDF No      ODF No   DOC, —        OPML         GPL, MIT
+                                                                           RTF
+                                                                                           TXT, XOXO,
+                                                                                           iCalendar,
+                                                                                           Texinfo,
+                                                                                           man,
+                 Emacs_Lisp,                                                               contrib:
+Org-mode         Ruby (parser    XHTML        LaTeX   PDF DocBook ODF EPUB DOCX Markdown   groff, s5,   GPL
+                 only), Perl,                                         [20] [20]            deck.js,
+                 OCaml                                                                     Confluence
+                                                                                           Wiki Markup,
+                                                                                           TaskJuggler,
+                                                                                           RSS,
+                                                                                           FreeMind
+PmWiki           PHP             XHTML 1.0    No      No  No      No  No   No   —        —          GNU GPL
+                                 Transitional
+                                                                                                        Artistic
+POD              Perl            (X)HTML, XML LaTeX   No  DocBook No  No   RTF  —        Man_page,    License,
+                                                                                           plain_text   Perl's
+                                                                                                        license
+                                                                                           man, S5,
+reStructuredText Python,[21][22] HTML, XML    LaTeX   PDF DocBook ODF EPUB DOC  —        Devhelp, QT  Public
+                 Haskell, Java,                                                            Help, CHM,   Domain
+                                                                                           JSON
+                 PHP,
+                 Javascript,
+Textile          Java, Perl,     XHTML        No      No  No      No  No   No   —        —          Textile
+                 Python, Ruby,                                                                          License
+                 ASP, C#,
+                 Haskell
+Texy!            PHP, C#         (X)HTML      No      No  No      No  No   No   —        —          GNU GPL v2
+                                                                                                        License
+                                                                                Creole,
+                                                                                AsciiDoc,  roff, man,
+                                                                                MediaWiki, MagicPoint,
+txt2tags         Python,[23] PHP (X)HTML,     LaTeX   PDF DocBook ODF EPUB DOC  MoinMoin,  Lout,        GPL
+                 [24]            SGML                                           PmWiki,    PageMaker,
+                                                                                DokuWiki,  ASCII_Art,
+                                                                                Google     TXT
+                                                                                Code_Wiki
+***** Comparison of lightweight markup language syntax[edit] *****
+**** Text formatting[edit] ****
+Although usually documented as yielding italic and bold text, most lightweight
+markup processors output semantic HTML elements em and strong instead.
+Monospaced text may either result in semantic code or presentational tt
+elements. Few languages make a distinction, e.g. Textile, or allow the user to
+configure the output easily, e.g. Texy.
+LMLs sometimes differ for multi-word markup where some require the markup
+characters to replace the inter-word spaces (infix). Some languages require a
+single character as prefix and suffix, other need doubled or even tripled ones
+or support both with slightly different meaning, e.g. different levels of
+emphasis.
+                          Comparing text formatting syntax
+Language  Bold            Italic            Monospace               Notes
+          *bold text*    'italic text'     +monospace text+       Can double
+                                                                    operators to
+                                                                    apply formatting
+                                                                    where there is no
+AsciiDoc                                                            word boundary
+                          _italic text_    `monospace text`       (for example
+                                                                    **b**old t**ex**t
+                                                                    yields bold
+                                                                    text).
+
+AFT       _bold text_    ''italic text''   |monospace text|       ~small text~
+                                                                    Triple curly
+                                                                    braces are for
+                                                                    nowiki which is
+Creole    **bold text**   //italic text//   {{{monospace text}}}    optionally
+                                                                    monospace in
+                                                                    Creole (the
+                                                                    choice of the
+                                                                    implementor).
+                                                                    Deplate
+                                                                    discourages
+                                                                    visual
+                                                                    formatting. Users
+          {text                                                     who want to
+Deplate   style=bold:     __emphasized      ''monospace text''      format text in a
+          bold text}      text__                                    particular style
+                                                                    have to define
+                                                                    style classes in
+                                                                    the given output
+                                                                    format (CSS,
+                                                                    LaTeX).
+                                                                    Supports inline
+Jemdoc[1] *bold text*     /italic text/     +monospace text+        LaTeX equations,
+                                                                    such as $ f(x) =
+                                                                    \frac{1}{x} $
+                                                                    ***strong
+                                                                    text***, ///em
+KARAS     **bold text**   //italic text//   ```monospace text```    text///, __ u
+                                                                    text__, ___ ins
+                                                                    text___ and the
+                                                                    others.
+          **bold text**  *italic text*    `monospace text`        Markdown doesn't
+                                                                    use bold and
+                                                                    italic tags, but
+Markdown                                                            rather em
+[25]      __bold text__  _italic text_    `monospace text`        (typically
+                                                                    italic) and
+                                                                    strong (typically
+                                                                    bold) tags.
+
+                                            <code>monospace text</  MediaWiki mostly
+MediaWiki '''bold text''' ''italic text''   code>                   resorts to inline
+                                                                    HTML
+Org-mode  *bold text*     /italic text/     =code=                  _underlined_
+                                            ~verbatim~              +strike-through+
+PmWiki    '''bold text''' ''italic text''   @@monospace text@@
+reST      **bold text**   *italic text*     ``monospace text``
+Setext    **bold text**   ~italic text~                             _underlined_text_
+          *strong*        _emphasis_                                Semantic strong
+Textile                                     @monospace text@        and em HTML tags
+[26]      **bold text**  __italic text__                          Presentational b
+                                                                    and i HTML tags
+                          *italic text*                             Texy uses
+                                                                    semantic tags by
+                                                                    default, but can
+Texy!     **bold text**                     `monospace text`        be configured to
+                          //italic text//                           use
+                                                                    presentational
+                                                                    tags.
+
+txt2tags  **bold text**   //italic text//   ``monospace text``      __underlined__ --
+                                                                    strike-through--
+                                                                    Indented text is
+POD       B<bold text>    I<italic text>    C<monospace text>       also shown as
+                                                                    monospaced code.
+          [b]bold text[/ [i]italic text[/ [code]monospace text[/ Formatting works
+BBCode    b]              i]                code]                   across line
+                                                                    breaks.
+**** Headings[edit] ****
+Headings are usually available in up to six levels, but the top one is often
+reserved to contain the same as the document title, which may be set
+externally. Some documentation may associate levels with divisional types, e.g.
+part, chapter, section, article or paragraph.
+Most LMLs follow one of two styles for headings, Setext-like underlines or line
+markers, or they support both.
+*** Underline[edit] ***
+Level 1 Heading
+===============
+
+Level 2 Heading
+---------------
+
+Level 3 Heading
+~~~~~~~~~~~~~~~
+The first style uses underlines, i.e. repeated characters (e.g. equals =,
+hyphen - or tilde ~, usually at least two or four times) in the line below the
+heading text.
+                         Underlined heading levels
+Chars:           =   -   ~   *   +   #   ^   _   :   ” ’ `   <   >   min
+AsciiDoc         1   2   3   No  No  No  No  No  No  No  No  No  No  No  ?
+Markdown         1   2   No  No  No  No  No  No  No  No  No  No  No  No  ?
+reStructuredText Yes Yes Yes Yes Yes Yes Yes Yes Yes Yes Yes Yes Yes Yes ?
+Setext           1   2   No  No  No  No  No  No  No  No  No  No  No  No  ?
+Texy!            Yes Yes No  Yes No  Yes No  No  No  No  No  No  No  No  ?
+RST and Texy may determine heading levels dynamically, which makes authoring
+more individual on the one hand, but complicates merges from external sources
+on the other hand.
+*** Prefix[edit] ***
+# Level 1 Heading
+## Level 2 Heading ##
+### Level 3 Heading ###
+The second style is based on repeated markers (e.g. hash #, equals = or
+asterisk *) at the start of the heading itself, where the number of repetitions
+indicates the (sometimes inverse) heading level. Most languages also support
+the reduplication of the markers at the end of the line, but whereas some make
+them mandatory, others do not even expect their numbers to match.
+                       Line prefix (and suffix) headings
+Char:     =   #   *   !   +   Suffix   Levels              Indentation
+AsciiDoc  Yes No  No  No  No  Optional 1–6               No
+AFT       No  No  Yes No  No  No       1–7               No
+Creole    Yes No  No  No  No  Optional 1–6               No
+deplate   No  No  Yes No  No  No       1–6               No
+Jemdoc[1] Yes No  No  No  No  No       1–6               No
+Markdown  No  Yes No  No  No  Optional 1–6               No
+MediaWiki Yes No  No  No  No  Yes      1–6               No
+Org-mode  No  No  Yes No  No  No       1– +∞           alternative [27][28]
+PmWiki    No  No  No  Yes No  Optional 1–6               No
+Texy!     No  Yes No  No  No  Optional 6–1 or 1–6, dynaNoc
+txt2tags  Yes No  No  No  Yes Yes      1–6               No
+POD and Textile choose the HTML convention of numbered heading levels instead.
+Org-mode supports indentation as a means of indicating the level. BBCode does
+not support section headings at all.
+      Other heading formats
+Language    Format
+POD         =head1 Level 1 Heading
+            =head2 Level 2 Heading
+            h1. Level 1 Heading
+            h2. Level 2 Heading
+Textile[26] h3. Level 3 Heading
+            h4. Level 4 Heading
+            h5. Level 5 Heading
+            h6. Level 6 Heading
+**** Link syntax[edit] ****
+Hyperlinks can either be added inline, which may clutter the code because of
+long URLs, or with named alias or numbered id references to lines containing
+nothing but the address and related attributes and often may be located
+anywhere in the document. Most languages allow the author to specify text Text
+to be displayed instead of the plain address http://example.com and some also
+provide methods to set a different link title Title which may contain more
+information about the destination.
+LMLs that are tailored for special setups, e.g. wikis or code documentation,
+may automatically generate named anchors (for headings, functions etc.) inside
+the document, link to related pages (possibly in a different namespace) or
+provide a textual search for linked keywords.
+Most languages employ (double) square or angular brackets to surround links,
+but hardly any two languages are completely compatible. Many can automatically
+recognize and parse absolute URLs inside the text without further markup.
+                           Inline hyperlink syntax
+Basic syntax       Text syntax         Title syntax       Languages
+                                                          AFT, BBCode, Creole,
+                                                          Deplate, MediaWiki,
+                                                          PmWiki
+                                       "Text (Title)":    Textile
+http://example.com "Text":http://      http://example.com
+                   example.com         "Text .(Title)":   Texy!
+                                       http://example.com
+                   http://example.com                     AsciiDoc
+                   [Text]
+                   [Text http://                          txt2tags
+[http://           example.com]
+example.com]       [http://example.com                    Jemdoc, MediaWiki
+                   Text]
+                   [Text (Name)]
+[Name]             [Text (http://                         AFT
+                   example.com)]
+                   [[Name|Text]]                          Creole, MediaWiki,
+[[Name]]                                                  PmWiki
+                   [[Name][Text]]                         Deplate, Org-mode
+                   [[Namespace:                           Creole
+[[Namespace:Name]] Name|Text]]
+                   [[Namespace:Name]                      Deplate, Org-mode
+                   [Text]]
+                   [[http://                              Creole, PmWiki
+[[http://          example.com|Text]]
+example.com]]      [[http://                              Deplate, Org-mode
+                   example.com][Text]]
+[url]http://       [url=http://
+example.com[/url]  example.com]Text[/                     BBCode
+                   url]
+                   [Text](http://      [Text](http://
+<http://           example.com)        example.com        Markdown
+example.com>                           "Title")
+                   `Text <http://                         reStructuredText
+                   example.com/>`_
+L</Name>                                                  POD
+L<http://                                                 POD
+example.com/>
+                               Reference syntax
+Text syntax                  Title syntax                      Languages
+... Name_ ...                                                  reStructuredText
+.. _Name: http://example.com
+... [Text][id] ...           ... [Text][id] ...                Markdown
+[id]: http://example.com     [id]: http://example.com "Title"
+... "Text":alias ...         ... "Text":alias ...              Textile
+[alias]http://example.com    [alias (Title)]http://example.com
+... "Text":alias ...         ... "Text":alias ...
+[alias]: http://example.com  [alias]: http://example.com .     Texy!
+                             (Title)
+
+***** See also[edit] *****
+    * Comparison_of_document_markup_languages
+    * Comparison_of_documentation_generators
+***** References[edit] *****
+   1. ^ a b c dMattingley, Jacob (2012-11-27). "jemdoc_–_cheatsheet".
+      jemdoc.jaboc.net. Retrieved 2015-01-27. 
+   2. ^"PHP_Markdown_Extra". Michelf.com. Retrieved 2013-10-08. 
+   3. ^ a b c Pandoc, which is written in Haskell, parses Markdown (in two
+      forms) and ReStructuredText, as well as HTML and LaTeX; it writes from
+      any of these formats to HTML, RTF, LaTeX, ConTeXt, OpenDocument, EPUB and
+      several other formats, including (via LaTeX) PDF.
+   4. ^"Html2wiki_txt2tags_module". cpan.org. Retrieved 2014-01-30. 
+   5. ^"Txt2tags_User_Guide". Txt2tags.sourceforge.net. Retrieved 2013-10-08. 
+   6. ^Todd A. Coram (2010-09-09). "Almost_Free_Text_(AFT)_Reference_Manual".
+      5.98. 
+   7. ^"Converters". WikiCreole. Retrieved 2013-10-08. 
+   8. ^ pegdown : A Java library for Markdown processing
+   9. ^ a b gfms : Github Flavored Markdown Server
+  10. ^ a b marked : A full-featured markdown parser and compiler, written in
+      JavaScript. Built for speed.
+  11. ^ a b node-gfm : GitHub flavored markdown to html converter
+  12. ^ Parsedown : Markdown parser written in PHP
+  13. ^ a b Ciconia : Markdown parser written in PHP
+  14. ^ a b Grip : GitHub Readme Instant Preview
+  15. ^ github-markdown : Self-contained Markdown parser for GitHub
+  16. ^ peg-markdown is an implementation of markdown in C.
+  17. ^ Discount is also an implementation of markdown in C.
+  18. ^"Python-Markdown". Github.com. Retrieved 2013-10-08. 
+  19. ^Bruce Williams <http://codefluency.com>, for Ruby Central <http://
+      rubycentral.org>. "kramdown:_Project_Info". RubyForge. Retrieved 2013-10-
+      08. 
+  20. ^ a b"Via_ox-pandoc_and_pandoc_itself". 
+  21. ^ Docutils is an implementation of ReStructuredText in Python
+  22. ^ Sphinx is an implementation of ReStructuredText in Python and Docutils
+      with a number of output format Builders
+  23. ^Aurelio Jargas www.aurelio.net (2012-01-11). "txt2tags". txt2tags.
+      Retrieved 2013-10-08. 
+  24. ^"txt2tags.class.php_-_online_convertor". Txt2tags.org. Retrieved 2013-
+      10-08. 
+  25. ^"Markdown_Syntax". Daringfireball.net. Retrieved 2013-10-08. 
+  26. ^ a b Textile_Syntax
+  27. ^"using_org-adapt-indentation". 
+  28. ^"using_org-indent-mode_or_org-indent". 
+***** External links[edit] *****
+ Wikibooks has a book on the topic of: Curl
+    * C2's_list
+    * Curl_Markup_to_replace_HTML+CSS+JS
+    * Inhabitants_of_the_authoring_ecosphere
+    * List_at_otl_website
+    * Humane_Text_Formats_-_A_comparison (obsolete)
+    * Pandoc:_a_versatile_inter-format_converter
+    * v
+    * t
+    * e
+Markup_language varieties
+    * Document
+    * General-purpose
+    * Geographic
+      information
+    * Lightweight
+    * Mathematical
+    * Page_description
+    * Playlist
+    * User_interface
+    * Vector_graphics
+    * XML
+    * Unclassified
+
+Retrieved from "https://en.wikipedia.org/w/
+index.php?title=Lightweight_markup_language&amp;oldid=694694134"
+Categories:
+    * Lightweight_markup_languages
+    * Markup_languages
+    * Data_serialization_formats
+    * Computing-related_lists
+    * Markup_language_comparisons
+Hidden categories:
+    * Articles_lacking_reliable_references_from_December_2007
+    * All_articles_lacking_reliable_references
+    * Wikipedia_articles_needing_clarification_from_June_2014
+***** Navigation menu *****
+**** Personal tools ****
+    * Not logged in
+    * Talk
+    * Contributions
+    * Create_account
+    * Log_in
+**** Namespaces ****
+    * Article
+    * Talk
+Variants
+**** Views ****
+    * Read
+    * Edit
+    * View_history
+More
+**** Search ****
+[Unknown INPUT type][Search][Go]
+**** Navigation ****
+    * Main_page
+    * Contents
+    * Featured_content
+    * Current_events
+    * Random_article
+    * Donate_to_Wikipedia
+    * Wikipedia_store
+**** Interaction ****
+    * Help
+    * About_Wikipedia
+    * Community_portal
+    * Recent_changes
+    * Contact_page
+**** Tools ****
+    * What_links_here
+    * Related_changes
+    * Upload_file
+    * Special_pages
+    * Permanent_link
+    * Page_information
+    * Wikidata_item
+    * Cite_this_page
+**** Print/export ****
+    * Create_a_book
+    * Download_as_PDF
+    * Printable_version
+**** Languages ****
+    * Deutsch
+    * Español
+    * Français
+    * 한국어
+    * 日本語
+    * 中文
+Edit_links
+    * This page was last modified on 10 December 2015, at 22:42.
+    * Text is available under the Creative_Commons_Attribution-ShareAlike
+      License; additional terms may apply. By using this site, you agree to the
+      Terms_of_Use and Privacy_Policy. Wikipedia® is a registered trademark of
+      the Wikimedia_Foundation,_Inc., a non-profit organization.
+    * Privacy_policy
+    * About_Wikipedia
+    * Disclaimers
+    * Contact_Wikipedia
+    * Developers
+    * Mobile_view
+    * [Wikimedia_Foundation]
+    * [Powered_by_MediaWiki]
